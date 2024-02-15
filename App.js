@@ -15,11 +15,7 @@ const app = express();
 const cors = require('cors');
 require('dotenv').config();
 
-app.use(cors(
-    {
-        origin: '*'
-    }
-));
+app.use(cors({ origin: 'https://voyagebuddy.net' }));
 
 app.use(express.json());
 
