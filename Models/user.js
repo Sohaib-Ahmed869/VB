@@ -6,7 +6,8 @@ const userSchema = new Schema({
     lastname: String,
     email:{ type: String, required: true, unique: true },
     password: String,
-    dateOfBirth: Date
+    dateOfBirth: Date,
+    verified: { type: Boolean, default: false },
 });
 
 module.exports = mongoose.model('User', userSchema);

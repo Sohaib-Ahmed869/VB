@@ -24,15 +24,17 @@ router.post('/forgot-password', async (req, res) => {
   
       //send an email with the reset link
       var transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: 'smtp.hostinger.com',
+        port: 465,
+        secure: true,
         auth: {
-          user: 'sohaibsipra869@gmail.com',
-          pass: 'hfzr tmpg meug yskb'
+            user: 'admin@voyagebuddy.net',
+            pass: 'West3700$#'
         }
-      });
+    });
 
       const mailOptions = {
-        from: 'sohaibsipra869@gmail.com',
+        from: 'admin@voyagebuddy.net',
         to: user.email,
         subject: 'Password Reset Request',
         text: `You are receiving this because you  have requested the reset of the password for your account.\n\n`

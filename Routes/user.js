@@ -41,6 +41,12 @@ router.post('/signin', async (req, res, next) => {
                 message: 'Authentication failed'
             });
         }
+
+        if(!user.verified){
+            return res.status(401).json({
+                message: 'User not verified'
+            });
+        }
         
         console.log("jwt secret key: ",process.env.JWT_KEY )
       
