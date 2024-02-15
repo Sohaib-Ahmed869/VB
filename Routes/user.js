@@ -34,9 +34,9 @@ router.post('/signin', async (req, res, next) => {
     try {
         const { firstname, password } = req.body;
         console.log(firstname, password )
-        const user = await User.findOne({ firstname: firstname });
+        const user = await User.findOne({ email: firstname });
         
-        if (!user || !(await bcrypt.compare(password, user.password))) {
+        if (!user || !(bcrypt.compare(password, user.password))) {
             return res.status(401).json({
                 message: 'Authentication failed'
             });

@@ -9,6 +9,7 @@ const ChangePassword = require('./Routes/ChangePassword');
 const CodeVerification = require('./Routes/CodeVerification');
 const ForgotPass = require('./Routes/ForgotPassword');
 const Trips = require('./Routes/Trips');
+const Plan = require('./Routes/Plan');
 
 const app = express();
 const cors = require('cors');
@@ -19,6 +20,7 @@ app.use(cors(
         origin: '*'
     }
 ));
+
 app.use(express.json());
 
 const bodyParser = require('body-parser');
@@ -31,8 +33,9 @@ app.use('/user', CodeVerification);
 app.use('/user', ChangePassword);
 app.use('/user', ForgotPass);
 app.use('/trips', Trips);
+app.use('/plan', Plan);
 
-mongoose.connect('mongodb://127.0.0.1:27017/VB')
+mongoose.connect('mongodb+srv://admin:West3700@voyagebuddy.3yyi5i1.mongodb.net/?retryWrites=true&w=majority')
 
     .then(() => {
         console.log('Connected to database');
